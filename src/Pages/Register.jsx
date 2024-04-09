@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 
 const Register = () => {
+    const[showPassword, setShowPassword] = useState(false);
     return (
     <div className=" mx-auto w-full md:w-1/2 shadow-2xl bg-base-100 mb-8 mt-6">
         <h2 className="text-3xl font-bold font-poppins text-center">Please Register Now </h2>
@@ -24,11 +27,19 @@ const Register = () => {
             </label>
             <input type="photo" placeholder="Photo URL" className="input input-bordered" required />
             </div>
-            <div className="form-control">
+            <div className="form-control relative mb-4">
             <label className="label">
                 <span className="label-text">Password</span>
             </label>
-            <input type="password" placeholder="password" className="input input-bordered" required />
+            <input type={showPassword ? "text" : "password"} 
+            placeholder="password" 
+            className="input input-bordered  " required />
+                <span className="absolute top-12 right-3"
+                 onClick={ () =>setShowPassword(!showPassword)}>
+                    {
+                        showPassword ? <FaEyeSlash/> : <FaEye/>
+                    }
+                </span>
             <label className="label">
                 <a href="#" className="label-text-alt link link-hover ">Forgot password?</a>
             </label>
