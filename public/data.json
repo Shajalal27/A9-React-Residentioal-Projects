@@ -1,0 +1,118 @@
+ [
+    {
+        "image": "https://i.ibb.co/8rMRGNK/pexels-photo-323780.webp",
+        "title": "Cozy Family Retreat",
+        "id": 1,
+        "segment": "Single-family Home",
+        "description": "Charming single-family home perfect for a growing family. Features spacious bedrooms, a large backyard, and a modern kitchen.",
+        "price": "$350,000",
+        "status": "For Sale",
+        "area": "2,000 sqft",
+        "location": "123 Main Street, Anytown, USA",
+        "facilities": ["Backyard", "Modern Kitchen", "Spacious Bedrooms"]
+      },
+      {
+        "title": "Urban Townhouse Living",
+        "image": "https://i.ibb.co/r3VVdJH/free-photo-of-surrounded-by-townhouses-luxurious-hilton-imperial-hotel-in-dubrovnik.jpg",
+        "id": 2,
+        "segment": "Townhouse",
+        "description": "Contemporary townhouse located in the heart of the city. Walking distance to shops, restaurants, and public transportation.",
+        "price": "$450,000",
+        "status": "For Sale",
+        "area": "1,500 sqft",
+        "location": "456 Elm Street, Downtown, Metropolis",
+        "facilities": ["City View", "Modern Design", "Close to Amenities"]
+      },
+      {
+        "image": "https://i.ibb.co/xDTyrJF/pexels-photo-3797991.webp",
+        "id": 3,
+        "title": "Luxury City Apartment",
+        "segment": "Apartment",
+        "description": "Sophisticated apartment with breathtaking views of the skyline. Features high-end finishes and amenities.",
+        "price": "$2,500/month",
+        "status": "For Rent",
+        "area": "1,200 sqft",
+        "location": "789 Oak Avenue, Downtown, Metro City",
+        "facilities": ["City View", "Gym", "Swimming Pool"]
+      },
+      {
+        "image": "https://i.ibb.co/QpYtCWd/pexels-photo-7972506.jpg",
+        "title": "Campus Haven Apartments",
+        "id": 4,
+        "segment": "Student Housing",
+        "description": "Modern student apartments located near campus. Fully furnished units with study spaces, communal areas, and amenities tailored for student life.",
+        "price": "$1,200/month",
+        "status": "Available",
+        "area": "700 sq ft",
+        "location": "Near University",
+        "facilities": ["Study lounge", "Fitness center", "Laundry facilities"]
+      },
+      {
+        "image": "https://i.ibb.co/hFD65FN/free-photo-of-view-of-a-village.jpg",
+        "title": "Tranquil Retirement Village",
+        "id": 5,
+        "segment": "Senior Living Communities",
+        "description": "Retirement community offering serene surroundings and tailored services for seniors. Amenities include wellness programs, social activities, and on-site medical assistance.",
+        "price": "Starting at $3,500/month",
+        "status": "Available",
+        "area": "Varies",
+        "location": "Scenic Countryside",
+        "facilities": ["Swimming pool", "Community center", "Medical facilities"]
+      },
+      {
+        "image": "https://i.ibb.co/4FCZk70/pexels-photo-5028927.jpg",
+        "title": "Seaside Escape Villa",
+        "id": 6,
+        "segment": "Vacation Rentals",
+        "description": "Stunning beachfront villa ideal for vacation getaways. Features luxurious amenities, panoramic ocean views, and easy access to recreational activities.",
+        "price": "$500/night",
+        "status": "Available",
+        "area": "2,000 sq ft",
+        "location": "Beachfront",
+        "facilities": ["Private beach access", "Infinity pool", "Outdoor dining area"]   
+      },
+      {
+        "image": "https://i.ibb.co/J24qBm1/pexels-photo-19699979.webp",
+        "title": "Campus View Apartments",
+        "id": 7,
+        "segment": "Student Residential",
+        "description": "Modern student apartments with scenic views of the university campus. Fully furnished units with study areas and communal spaces.",
+        "price": "$1,300/month",
+        "status": "Available",
+        "area": "700 sq ft",
+        "location": "Near University",
+        "facilities": ["Study lounge", "Fitness center", "Laundry facilities"]   
+      },
+      {
+        "image": "https://i.ibb.co/BGDzZVn/pexels-photo-7107529.jpg",
+        "title": "Mountain Chalet",
+        "id": 8,
+        "segment": "Affordable",
+        "description": "Escape to this luxurious mountain chalet offering stunning views and upscale amenities.",
+        "price": "$1,800,000",
+        "status": "For Sale",
+        "area": "3500 sqft",
+        "location": "7890 Summit Drive, Mountain Village, State",
+        "facilities": ["Hot Tub", "Sauna", "Ski Storage"]
+      },
+      {
+        "image": "https://i.ibb.co/phkVPyS/pexels-photo-323775.webp",
+        "title": "Urban Loft Apartment",
+        "id": 9,
+        "segment": "Mid-range",
+        "description": "Experience city living at its finest in this modern loft apartment with skyline views.",
+        "price": "$600,000",
+        "status": "For Sale",
+        "area": "1200 sqft",
+        "location": "9101 Elm Lane, Metropolis, State",
+        "facilities": ["Fitness Center", "Rooftop Terrace", "Parking"]
+      }
+  ]
+      
+      
+      
+      
+      
+     
+      
+      
