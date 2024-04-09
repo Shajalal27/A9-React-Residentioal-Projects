@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa6";
 import { FaTwitter } from "react-icons/fa";
+import 'animate.css';
+
 
 
 const Login = () => {
@@ -40,7 +42,7 @@ const Login = () => {
             </div>
                 <div className="text-center lg:text-left">
                 <h1 className="text-5xl font-bold text-orange-600">Wellcome <span className="text-green-400	">Residential</span></h1>
-                <h1 className="text-5xl font-bold">Login now!</h1>
+                <h1 className="text-5xl font-bold animate__animated animate__flash animate__repeat-3  " >Login now!</h1>
                 <p className="py-6">A residential wellcome typically refers to a warm and hospitable reception provided to individuals upon their arrival at a residential facility or community. </p>
                 </div>   
             </div>
