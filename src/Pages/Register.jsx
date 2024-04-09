@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Register = () => {
     return (
-    <div className=" mx-auto md: w-1/2 shadow-2xl bg-base-100 mb-8 mt-6">
+    <div className=" mx-auto w-full md:w-1/2 shadow-2xl bg-base-100 mb-8 mt-6">
         <h2 className="text-3xl font-bold font-poppins text-center">Please Register Now </h2>
         <form className="card-body w-full">
             <div className="form-control">
