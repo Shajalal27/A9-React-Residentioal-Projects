@@ -1,11 +1,17 @@
+import { createContext } from "react";
 
 
-const AuthProvider = (props) => {
-    console.log(props);
+export const AuthContext = createContext(null)
+
+const AuthProvider = ({children}) => {
+
+
+    const allValues = {name: 'test'}
+    
     return (
-        <div>
-            <h2>Auth provider</h2>
-        </div>
+        <AuthContext.Provider value={allValues}>
+            {children}
+        </AuthContext.Provider>
     );
 };
 
