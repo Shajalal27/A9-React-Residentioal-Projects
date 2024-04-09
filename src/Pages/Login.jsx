@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa6";
+import { FaTwitter } from "react-icons/fa";
 
 
 const Login = () => {
@@ -24,10 +27,17 @@ const Login = () => {
                     </label>
                     </div>
                     <div className="form-control mt-6">
-                   <Link to={'/'}> <button className="btn btn-primary">Login</button></Link>
+                        <button className="btn btn-primary">Login</button>
                     </div>
                 </form>
+                <div className="flex gap-8 justify-center items-center text-3xl">
+                    <FcGoogle />
+                    <FaGithub/>
+                    <FaTwitter />
                 </div>
+                <p className="text-center p-6">Do not have an account<Link
+                className="text-blue-600 font-bold pl-1" to={'/register'}>Register</Link>  </p> 
+            </div>
                 <div className="text-center lg:text-left">
                 <h1 className="text-5xl font-bold text-orange-600">Wellcome <span className="text-green-400	">Residential</span></h1>
                 <h1 className="text-5xl font-bold">Login now!</h1>
