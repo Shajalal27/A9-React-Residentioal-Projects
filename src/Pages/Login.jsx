@@ -3,27 +3,52 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa6";
 import { FaTwitter } from "react-icons/fa";
 import 'animate.css';
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import { useForm } from "react-hook-form";
 
 
 
 const Login = () => {
+    const {signInUser} = useContext(AuthContext)
+
+    const {register,  handleSubmit, formState: { errors }, } = useForm();
+      const onSubmit = (data) => {
+        // console.log(data)
+        const {email, password} = data;
+
+        signInUser(email, password)
+        .then(result =>{
+            console.log(result.user)
+        })
+        .catch(error =>{
+            console.log(error)
+        })
+      }
+
     return (
        
     <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex flex-col-reverse md:flex-row-reverse ">
             <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                <form className="card-body">
+                <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                     <div className="form-control">
                     <label className="label">
                         <span className="label-text">Email</span>
                     </label>
-                    <input type="email" placeholder="email" className="input input-bordered" required />
+                    <input type="email" placeholder="email" className="input input-bordered" required 
+                    {...register("email", { required: true })}
+                    />
+                     {errors.email && <span className="text-red-500">This field is required</span>}
                     </div>
                     <div className="form-control">
                     <label className="label">
                         <span className="label-text">Password</span>
                     </label>
-                    <input type="password" placeholder="password" className="input input-bordered" required />
+                    <input type="password" placeholder="password" className="input input-bordered" required 
+                    {...register("password", { required: true })}
+                    />
+                     {errors.password && <span className="text-red-500">This field is required</span>}
                     <label className="label">
                         <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                     </label>

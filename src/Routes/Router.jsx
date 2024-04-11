@@ -5,6 +5,7 @@ import Details from "../Components/Details/Details";
 import Contact from "../Components/Contact/Contact";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import NotFound from "../Pages/NotFound/NotFound";
 
 
 
@@ -12,6 +13,7 @@ const router =createBrowserRouter([
     {
         path: '/',
         element: <Root></Root>,
+        errorElement: <NotFound></NotFound>,
         children: [
             {
                 path: '/',
