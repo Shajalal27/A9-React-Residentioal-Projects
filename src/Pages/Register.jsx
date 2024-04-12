@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -19,10 +21,17 @@ const Register = () => {
         const {email, password} = data;
         createUser(email, password)
         .then(result =>{
-            console.log(result)
+            console.log(result);
+            if(result){
+                toast.success("Registration Successfully");
+            }
+            else{
+                toast.error("Already Registration");
+            }
         })
         .catch(error =>{
-            console.error(error)
+            console.error(error);
+            toast.error("Registration Invalid");
         })
     };
 
@@ -53,7 +62,7 @@ const Register = () => {
                 <span className="label-text">Photo Url</span>
             </label>
             <input type="photo" placeholder="Photo URL" className="input input-bordered"  
-            {...register("photo", { required: true })}
+            {...register("photo")}
             />
             </div>
             <div className="form-control relative mb-4">
@@ -63,7 +72,7 @@ const Register = () => {
             <input type={showPassword ? "text" : "password"} 
             placeholder="password" 
             className="input input-bordered  " 
-            {...register("password")}
+            {...register("password", { required: true })}
             />
             {errors.password && <span className="text-red-500" >This field is required</span>}
                 <span className="absolute top-12 right-3"
@@ -83,6 +92,7 @@ const Register = () => {
         </form>
         <p className="text-center p-6 -mt-8">Already have an account<Link 
         className="text-blue-600 font-bold pl-1" to={'/login'}>Login</Link>  </p> 
+        <ToastContainer/>
     </div>
     );
 };

@@ -6,6 +6,8 @@ import 'animate.css';
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -20,9 +22,11 @@ const Login = () => {
         signInUser(email, password)
         .then(result =>{
             console.log(result.user)
+            toast.success("Login Successfull");
         })
         .catch(error =>{
             console.log(error)
+            toast.error("Login faild");
         })
       }
 
@@ -57,6 +61,7 @@ const Login = () => {
                         <button className="btn btn-primary">Login</button>
                     </div>
                 </form>
+                <ToastContainer/>
                 <div className="flex gap-8 justify-center items-center text-3xl">
                     <FcGoogle />
                     <FaGithub/>
