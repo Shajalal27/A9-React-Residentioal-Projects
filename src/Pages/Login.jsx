@@ -3,7 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa6";
 import { FaTwitter } from "react-icons/fa";
 import 'animate.css';
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from 'react-toastify';
@@ -13,20 +13,31 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const {signInUser} = useContext(AuthContext)
+    const[logInError, setLogInError] = useState('');
+    const [logInSuccess, setLogInSuccess] = useState('');
+
 
     const {register,  handleSubmit, formState: { errors }, } = useForm();
       const onSubmit = (data) => {
         // console.log(data)
+
+         //reset error
+         setLogInError('');
+         setLogInSuccess('');
+
+
         const {email, password} = data;
 
         signInUser(email, password)
         .then(result =>{
             console.log(result.user)
-            toast.success("Login Successfull");
+            setLogInSuccess,
+            toast.success("Login Successfully");
         })
         .catch(error =>{
             console.log(error)
-            toast.error("Login faild");
+            setLogInError,
+            toast.error("Doesn’t match your email and password");
         })
       }
 
@@ -50,9 +61,18 @@ const Login = () => {
                         <span className="label-text">Password</span>
                     </label>
                     <input type="password" placeholder="password" className="input input-bordered" required 
-                    {...register("password", { required: true })}
+                    {...register("password",{ 
+                        required:"This field is required",
+                        pattern: {
+                            value: /^.{6,}/i,
+                            message: "Password contain must be 6 character"
+                        }
+                    })}
                     />
-                     {errors.password && <span className="text-red-500">This field is required</span>}
+                     {errors?.password?.type ==='pattern' && (<p className="text-red-500">{errors.password.message}</p>)}
+                    {
+                    errors?.password?.type ==='required' && (<p className="text-red-500">This field is required</p>)
+                    }
                     <label className="label">
                         <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                     </label>
@@ -61,7 +81,13 @@ const Login = () => {
                         <button className="btn btn-primary">Login</button>
                     </div>
                 </form>
-                <ToastContainer/>
+                {
+                 setLogInError && <p>{logInError}</p>
+                }
+                {
+                    setLogInSuccess && <p>{logInSuccess}</p>
+                }
+        <ToastContainer/>
                 <div className="flex gap-8 justify-center items-center text-3xl">
                     <FcGoogle />
                     <FaGithub/>

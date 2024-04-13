@@ -11,27 +11,34 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
     const[showPassword, setShowPassword] = useState(false);
-
+    const[registerError, setRegisterError] = useState('');
+    const [registerSuccess, setRegisterSuccess] = useState('');
     const {createUser} = useContext(AuthContext);
     // console.log(createUser);
 
     const {register,  handleSubmit, formState: { errors }, } = useForm();
       const onSubmit = (data) => {
         // console.log(data)
+
+        //reset error
+        setRegisterError('');
+        setRegisterSuccess('');
+
         const {email, password} = data;
         createUser(email, password)
+        
+        
         .then(result =>{
-            console.log(result);
-            if(result){
-                toast.success("Registration Successfully");
-            }
-            else{
-                toast.error("Already Registration");
-            }
+            console.log(result)
+            setRegisterSuccess,
+            toast.success("Registration Successfully");
+            
         })
         .catch(error =>{
             console.error(error);
-            toast.error("Registration Invalid");
+            setRegisterError,
+            toast.error("Already Register")
+
         })
     };
 
@@ -72,15 +79,25 @@ const Register = () => {
             <input type={showPassword ? "text" : "password"} 
             placeholder="password" 
             className="input input-bordered  " 
-            {...register("password", { required: true })}
+            {...register("password",{ 
+                required:"This field is required",
+                pattern: {
+                    value: /^(?=.*?[A-Z])(?=.*?[a-z]).{6,}/i,
+                    message: "Password contain must be an Uppercase, Lowercase and 6 character"
+                }
+            })}
             />
-            {errors.password && <span className="text-red-500" >This field is required</span>}
+            {errors?.password?.type ==='pattern' && (<p className="text-red-500">{errors.password.message}</p>)}
+            {
+            errors?.password?.type ==='required' && (<p className="text-red-500">This field is required</p>)
+            }
                 <span className="absolute top-12 right-3"
                  onClick={ () =>setShowPassword(!showPassword)}>
                     {
                         showPassword ? <FaEyeSlash/> : <FaEye/>
                     }
                 </span>
+                  
             <label className="label">
                 <a href="#" className="label-text-alt link link-hover ">Forgot password?</a>
             </label>
@@ -92,6 +109,12 @@ const Register = () => {
         </form>
         <p className="text-center p-6 -mt-8">Already have an account<Link 
         className="text-blue-600 font-bold pl-1" to={'/login'}>Login</Link>  </p> 
+        {
+            setRegisterError && <p>{registerError}</p>
+        }
+        {
+            setRegisterSuccess && <p>{registerSuccess}</p>
+        }
         <ToastContainer/>
     </div>
     );
