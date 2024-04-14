@@ -1,18 +1,16 @@
 import { Link } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
-import { FaGithub } from "react-icons/fa6";
-import { FaTwitter } from "react-icons/fa";
 import 'animate.css';
-import { useContext, useState } from "react";
-import { AuthContext } from "../AuthProvider/AuthProvider";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useAuth from "../Hook/useAuth";
+import SocialLogin from "../Components/SocialLogin/SocialLogin";
 
 
 
 const Login = () => {
-    const {signInUser} = useContext(AuthContext)
+    const {signInUser} = useAuth();
     const[logInError, setLogInError] = useState('');
     const [logInSuccess, setLogInSuccess] = useState('');
 
@@ -88,11 +86,7 @@ const Login = () => {
                     setLogInSuccess && <p>{logInSuccess}</p>
                 }
         <ToastContainer/>
-                <div className="flex gap-8 justify-center items-center text-3xl">
-                    <FcGoogle />
-                    <FaGithub/>
-                    <FaTwitter/>
-                </div>
+                <SocialLogin></SocialLogin>
                 <p className="text-center p-6">Do not have an account<Link
                 className="text-blue-600 font-bold pl-1" to={'/register'}>Register</Link>  </p> 
             </div>

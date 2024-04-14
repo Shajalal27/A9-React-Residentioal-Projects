@@ -1,10 +1,10 @@
-import { useContext, useState } from "react";
+import {  useState } from "react";
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useAuth from "../Hook/useAuth";
 
 
 
@@ -13,7 +13,7 @@ const Register = () => {
     const[showPassword, setShowPassword] = useState(false);
     const[registerError, setRegisterError] = useState('');
     const [registerSuccess, setRegisterSuccess] = useState('');
-    const {createUser} = useContext(AuthContext);
+    const {createUser} = useAuth();
     // console.log(createUser);
 
     const {register,  handleSubmit, formState: { errors }, } = useForm();
