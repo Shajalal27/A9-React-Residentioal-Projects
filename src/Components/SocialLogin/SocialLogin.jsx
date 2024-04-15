@@ -4,13 +4,14 @@ import useAuth from "../../Hook/useAuth";
 
 
 const SocialLogin = () => {
-    const {googleLogin} = useAuth();
+    const {googleLogin, githubLogin, twitterLogin} = useAuth();
     return (
-            <div className="flex gap-8 justify-center items-center text-3xl">
+            <div className="flex gap-8 justify-center items-center text-3xl">   
                 <button onClick={ () =>googleLogin()}><FcGoogle /></button>
+                <button onClick={ () =>githubLogin()}><FaGithub/></button>
+                <button onClick={ () =>twitterLogin()}><FaTwitter/></button>
                     
-                    <FaGithub/>
-                    <FaTwitter/>
+                    
             </div>
       
     );

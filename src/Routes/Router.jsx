@@ -2,10 +2,10 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "../layout/Root";
 import Home from "../Components/Home/Home";
 import Details from "../Components/Details/Details";
-import Contact from "../Components/Contact/Contact";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import NotFound from "../Pages/NotFound/NotFound";
+import UpdateProfile from "../Components/UpdateProfile/UpdateProfile";
 
 
 
@@ -25,8 +25,8 @@ const router =createBrowserRouter([
                 element: <Details></Details>
             },
             {
-                path: '/contact',
-                element: <Contact></Contact>
+                path: '/update-profile',
+                element: <UpdateProfile></UpdateProfile>
             },
             {
                 path: '/login',

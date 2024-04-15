@@ -1,13 +1,17 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase/firebase.config";
 import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider } from "firebase/auth";
+import { TwitterAuthProvider } from "firebase/auth";
 
 
 export const AuthContext = createContext(null)
 
 //social auth provider
 const googleProvider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider();
+const twitterProvider = new TwitterAuthProvider();
 
 
 const AuthProvider = ({children}) => {
@@ -26,6 +30,26 @@ const AuthProvider = ({children}) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
+    //google login
+    const googleLogin = () =>{
+        return signInWithPopup(auth, googleProvider);
+     }
+     //github login
+     const githubLogin = () =>{
+        return signInWithPopup(auth, githubProvider);
+     }
+
+     //twitter login
+     const twitterLogin = () =>{
+        return signInWithPopup(auth, twitterProvider);
+     }
+
+    //logout
+     const logOut = () =>{
+        setUser(null)
+        signOut(auth)
+     }
+
     //observe
     useEffect( () =>{
         onAuthStateChanged(auth, (user) => {
@@ -38,15 +62,16 @@ const AuthProvider = ({children}) => {
           });
     }, [])
 
-    //google login
-    const googleLogin = () =>{
-       return signInWithPopup(auth, googleProvider);
-    }
+    
 
     const allValues = {
         createUser,
         signInUser,
-        googleLogin
+        googleLogin,
+        githubLogin,
+        twitterLogin,
+        logOut,
+        user
     }
     
     return (
