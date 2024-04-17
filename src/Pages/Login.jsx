@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import 'animate.css';
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -13,6 +13,7 @@ const Login = () => {
     const {signInUser} = useAuth();
     const[logInError, setLogInError] = useState('');
     const [logInSuccess, setLogInSuccess] = useState('');
+   
 
 
     const {register,  handleSubmit, formState: { errors }, } = useForm();
@@ -31,6 +32,7 @@ const Login = () => {
             console.log(result.user)
             setLogInSuccess,
             toast.success("Login Successfully");
+           
         })
         .catch(error =>{
             console.log(error)

@@ -38,7 +38,7 @@ const Navbar = () => {
             
             <div className="navbar-end ">
             {
-                user?.email ? 
+                user? 
                 <div tabIndex={0} role="button" className="flex gap-8">
                     <div className="w-12 h-12 rounded-full bg-slate-400 flex items-center justify-center">
                         <img className="rounded-full" src={user.photoURL}   title={user.displayName} />

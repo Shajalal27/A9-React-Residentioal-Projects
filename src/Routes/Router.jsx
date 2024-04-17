@@ -1,11 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../layout/Root";
 import Home from "../Components/Home/Home";
-import Details from "../Components/Details/Details";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import NotFound from "../Pages/NotFound/NotFound";
+import CardDetails from "../Components/CardDetails/CardDetails";
+import PrivateRoutes from "./PrivateRoutes";
 import UpdateProfile from "../Components/UpdateProfile/UpdateProfile";
+
+
+
+
+
 
 
 
@@ -21,12 +27,14 @@ const router =createBrowserRouter([
                 loader: () => fetch('data.json')
             },
             {
-                path: '/details',
-                element: <Details></Details>
-            },
-            {
                 path: '/update-profile',
                 element: <UpdateProfile></UpdateProfile>
+            },
+            {
+                path: '/details',
+                element: <PrivateRoutes>
+                    <CardDetails></CardDetails>
+                </PrivateRoutes>       
             },
             {
                 path: '/login',

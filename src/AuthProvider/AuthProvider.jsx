@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase/firebase.config";
@@ -16,17 +17,19 @@ const twitterProvider = new TwitterAuthProvider();
 
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
-    console.log(user)
+    const [loading, setLoading] = useState(true);
+    
 
     //creat user
     const createUser = (email, password) =>{
-       
+       setLoading(true);
       return  createUserWithEmailAndPassword(auth, email, password)
       
     }
 
     //Sign in user
     const signInUser = (email, password) =>{
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password)
     }
 
@@ -46,6 +49,7 @@ const AuthProvider = ({children}) => {
 
     //logout
      const logOut = () =>{
+        setLoading(true);
         setUser(null)
         signOut(auth)
      }
@@ -55,7 +59,7 @@ const AuthProvider = ({children}) => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
               setUser(user)
-             
+              setLoading(false);
              
             } 
            
@@ -71,6 +75,7 @@ const AuthProvider = ({children}) => {
         githubLogin,
         twitterLogin,
         logOut,
+        loading,
         user
     }
     

@@ -1,10 +1,18 @@
+/* eslint-disable react/prop-types */
+
 import { Link } from "react-router-dom";
+
 
 
 
 const CategoryList = ({cardIteam}) => {
     const{image, title, price, description, status, area} = cardIteam;
+
+   
+
+
     return (
+        
         <div className="card card-compact w-96 bg-base-100 shadow-xl border">
                 <figure><img className="h-[50vh] w-full rounded-lg" src={image} alt="Shoes" /></figure>
                 <div className="card-body">
@@ -22,7 +30,7 @@ const CategoryList = ({cardIteam}) => {
                         p-1  rounded-lg">{area}</p>
                     </div>
                     <div className="card-actions ">
-                    <button className="btn btn-success w-full font-bold mt-4">View Property</button>
+                   <Link to={'/details'} className="btn btn-success w-full font-bold mt-4" > View Property</Link>
                     </div>
                 </div>
         </div>

@@ -14,7 +14,7 @@ const Home = () => {
         
         <Header></Header>
         <SearchProperty></SearchProperty>
-        <div className="grid gap-16 grid-cols-1 md:grid-cols-3 border">
+        <div className="grid gap-16 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border">
          {
             cardIteam.map(card => <CategoryList key={card.id} cardIteam={card}></CategoryList>)
         }
